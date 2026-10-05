@@ -3,287 +3,262 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KPI Mobilidade — Manifesto popular</title>
+  <title>KPI´s | Mobilidade Inteligente & IA</title>
   <link rel="icon" href="/marca.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    :root { --azul:#12324d; --ouro:#e2b007; --fundo:#f4f1ea; --card:#fff; --erro:#8d1d18; --ok:#1b6b3a; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: Georgia, "Times New Roman", serif; background:var(--fundo); color:#1c1c1c; }
-    header { background:var(--azul); color:#fff; padding:28px 20px 18px; }
-    header .marca { display:flex; gap:14px; align-items:center; max-width:1100px; margin:0 auto; }
-    header img { width:54px; height:54px; }
-    header h1 { margin:0; font-size:1.7rem; letter-spacing:.02em; }
-    header p { margin:4px 0 0; font-size:.95rem; opacity:.9; }
-    .aviso { max-width:1100px; margin:10px auto 0; background:#fff3cd; color:#5c4300; padding:8px 12px; border-radius:6px; font-family: Segoe UI, sans-serif; font-size:.86rem; }
-    nav { max-width:1100px; margin:14px auto 0; display:flex; gap:8px; flex-wrap:wrap; }
-    nav button, .btn { border:0; background:#fff; color:var(--azul); padding:8px 14px; border-radius:999px; cursor:pointer; font-weight:700; font-family: Segoe UI, sans-serif; }
-    nav button.ativo, .btn.primario { background:var(--ouro); color:#1c1c1c; }
-    main { max-width:1100px; margin:18px auto 40px; padding:0 16px; }
-    .card { background:var(--card); border-radius:12px; padding:18px; margin-bottom:14px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
-    h2 { margin:0 0 8px; font-size:1.35rem; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
-    label { display:block; font-family:Segoe UI,sans-serif; font-size:.82rem; margin:8px 0 4px; }
-    input, select, textarea { width:100%; padding:9px; border:1px solid #ccc; border-radius:8px; font:inherit; }
-    .erro { color:var(--erro); font-family:Segoe UI,sans-serif; }
-    .ok { color:var(--ok); font-family:Segoe UI,sans-serif; }
-    table { width:100%; border-collapse:collapse; font-family:Segoe UI,sans-serif; font-size:.86rem; }
-    th, td { border-bottom:1px solid #eee; text-align:left; padding:6px; vertical-align:top; }
-    .acoes button { margin:2px; padding:4px 8px; border-radius:6px; border:1px solid #ccc; background:#fff; cursor:pointer; }
+    :root { --primary:#1a237e; --accent:#ffd600; --dark:#121212; --light:#f4f4f4; --success:#2e7d32; --erro:#b71c1c; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif; background:var(--light); color:var(--dark); line-height:1.6; }
+    header {
+      background: linear-gradient(rgba(26,35,126,.9), rgba(26,35,126,.9)), url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80");
+      background-size:cover; background-position:center; color:#fff; text-align:center; padding:78px 20px 36px;
+    }
+    header h1 { font-size:clamp(2rem,5vw,3.4rem); margin:0 0 8px; }
+    .tagline { font-size:1.15rem; opacity:.92; margin:0 0 22px; }
+    .nav { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .btn, nav button, .nav button {
+      border:0; cursor:pointer; background:#fff; color:var(--primary); font-weight:700; border-radius:50px; padding:10px 18px;
+    }
+    .btn.primario, .nav button.ativo { background:var(--accent); color:var(--dark); }
+    .btn.azul { background:var(--primary); color:#fff; }
+    .btn:hover { transform:translateY(-1px); }
+    .container { max-width:1100px; margin:auto; padding:20px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    .card { background:#fff; border-radius:14px; padding:22px; box-shadow:0 4px 16px rgba(0,0,0,.06); margin-bottom:16px; }
+    .card h3 { margin:8px 0; color:var(--primary); }
+    .icone { width:54px; height:54px; border-radius:50%; background:var(--accent); color:var(--dark); display:grid; place-items:center; font-size:1.3rem; }
+    label { display:block; font-size:.82rem; margin:10px 0 4px; color:#333; }
+    input, select { width:100%; padding:10px 12px; border:1px solid #d0d0d0; border-radius:8px; font:inherit; }
+    .erro { color:var(--erro); } .ok { color:var(--success); }
+    table { width:100%; border-collapse:collapse; font-size:.86rem; }
+    th, td { border-bottom:1px solid #eee; text-align:left; padding:7px; vertical-align:top; }
+    .acoes button { margin:2px; border:1px solid #ccc; background:#fff; border-radius:6px; padding:4px 8px; cursor:pointer; }
     .hidden { display:none; }
-    small { color:#555; }
+    footer { text-align:center; padding:24px; color:#555; font-size:.85rem; }
+    .status-bar { background:#fff8e1; color:#5d4037; padding:10px 16px; text-align:center; font-size:.9rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="marca">
-      <img src="/marca.svg" alt="Marca própria KPI Mobilidade">
-      <div>
-        <h1>KPI Mobilidade</h1>
-        <p>Manifesto popular do Projeto SandxCDD. Iniciativa cidadã, não é site oficial.</p>
-      </div>
-    </div>
-    <div class="aviso">Brasão, favicon e identidade do gov.br não são usados. Município sai da lista oficial do IBGE, sem alteração do nome. CPF e título passam por dígito verificador; isso não consulta Receita nem TSE.</div>
-    <nav>
+    <h1>KPI´s | Mobilidade Inteligente & IA</h1>
+    <p class="tagline">Plano de Mobilidade Urbana · Projeto SandxCDD</p>
+    <div class="nav">
       <button data-aba="manifesto" class="ativo">Manifesto</button>
       <button data-aba="entrar">Entrar</button>
       <button data-aba="cadastrar">Cadastrar</button>
       <button data-aba="painel">Meu painel</button>
       <button data-aba="admin" id="abaAdmin" class="hidden">Admin</button>
-    </nav>
+    </div>
   </header>
-  <main>
+  <div id="statusBar" class="status-bar hidden"></div>
+  <main class="container">
     <section id="manifesto">
+      <div class="grid">
+        <article class="card"><div class="icone"><i class="fas fa-eye"></i></div><h3>IA de visão</h3><p>Fiscalização de faixa exclusiva só com base legal e proteção de dados.</p></article>
+        <article class="card"><div class="icone"><i class="fas fa-route"></i></div><h3>Pagamento por km</h3><p>Tarifa auditável, com rastro público do que foi pago e do que rodou.</p></article>
+        <article class="card"><div class="icone"><i class="fas fa-balance-scale"></i></div><h3>Protocolo popular</h3><p>Assinatura conferida, votação e PDF nacional para levar à autoridade.</p></article>
+      </div>
       <div class="card">
-        <h2>Plano de mobilidade urbana</h2>
-        <p>Este abaixo-assinado pede eficiência na mobilidade municipal, com rastreio nacional por UF, votação de prioridades e relatório para protocolo. Não substitui iniciativa popular da Constituição nem voto do TSE.</p>
+        <h2 style="color:var(--primary);margin-top:0">Plano de mobilidade urbana</h2>
+        <p>Abaixo-assinado cidadão para eficiência da mobilidade no município, com rastreio pelas 27 UFs. Não substitui iniciativa popular da Constituição nem voto do TSE.</p>
         <div class="grid" id="totais"></div>
       </div>
       <div class="card">
-        <h2>Embasamento citado</h2>
+        <h2 style="color:var(--primary);margin-top:0">Embasamento citado</h2>
         <ul>
-          <li>Constituição, art. 5º, e iniciativa popular no art. 14, III, e art. 61, §2º — requisitos formais próprios, não cumpridos só com este site.</li>
-          <li>Lei 14.129/2021, governo digital, citada como referência de serviço público digital.</li>
-          <li>Lei 13.709/2018, LGPD: base de consentimento, exclusão e minimização.</li>
-          <li>Lei 8.429/1992, improbidade, citada apenas como contexto político do manifesto.</li>
+          <li>Constituição, art. 14, III, e art. 61, §2º — iniciativa popular tem rito próprio.</li>
+          <li>Lei 14.129/2021 — governo digital, como referência.</li>
+          <li>Lei 13.709/2018 — LGPD: consentimento, exclusão e minimização.</li>
+          <li>Lei 8.429/1992 — citada só como contexto do manifesto.</li>
         </ul>
       </div>
     </section>
+
     <section id="entrar" class="hidden">
-      <div class="card">
-        <h2>Entrar — cidadão ou admin</h2>
-        <p>A mesma aba identifica o papel. Admin não se cadastra aqui; a conta admin é criada no servidor.</p>
-        <label>E-mail</label><input id="loginEmail" type="email">
-        <label>Senha</label><input id="loginSenha" type="password">
+      <div class="card" style="max-width:520px;margin:0 auto">
+        <h2 style="color:var(--primary);margin-top:0">Entrar</h2>
+        <p>Cidadão e admin usam a mesma aba. O papel vem da conta.</p>
+        <label>E-mail</label><input id="loginEmail" type="email" autocomplete="username">
+        <label>Senha</label><input id="loginSenha" type="password" autocomplete="current-password">
         <p><button class="btn primario" id="btnLogin">Entrar</button></p>
         <p id="loginMsg"></p>
       </div>
     </section>
+
     <section id="cadastrar" class="hidden">
       <div class="card">
-        <h2>Cadastro do cidadão</h2>
-        <p>Dados rejeitados não entram no protocolo. Município tem de ser o nome oficial do IBGE.</p>
+        <h2 style="color:var(--primary);margin-top:0">Cadastro do cidadão</h2>
+        <p>Nome do município tem de ser o oficial do IBGE. Brasília pode ir sem acento. A UF é obrigatória.</p>
         <div class="grid">
           <div><label>Nome completo</label><input id="nome"></div>
           <div><label>E-mail</label><input id="email" type="email"></div>
           <div><label>Senha</label><input id="senha" type="password"></div>
-          <div><label>CPF</label><input id="cpf" maxlength="14"></div>
-          <div><label>WhatsApp com DDD</label><input id="whatsapp" placeholder="11999999999"></div>
+          <div><label>CPF</label><input id="cpf" inputmode="numeric" maxlength="14"></div>
+          <div><label>WhatsApp com DDD</label><input id="whatsapp" placeholder="61999999999"></div>
           <div><label>Nascimento</label><input id="nascimento" type="date"></div>
-          <div><label>Título (12 dígitos)</label><input id="titulo" maxlength="12"></div>
+          <div><label>Título (12 dígitos)</label><input id="titulo" inputmode="numeric" maxlength="12"></div>
           <div><label>Zona</label><input id="zona"></div>
           <div><label>Seção</label><input id="secao"></div>
-          <div><label>UF</label><select id="uf"></select></div>
-          <div><label>Município oficial</label><input id="municipio" list="listaMun"><datalist id="listaMun"></datalist></div>
+          <div><label>UF</label><select id="uf"><option value="">Selecione</option></select></div>
+          <div><label>Município oficial</label><input id="municipio" list="listaMun" placeholder="Brasília"><datalist id="listaMun"></datalist></div>
           <div><label>Emissão do título</label><input id="emissao" type="date"></div>
         </div>
-        <label><input type="checkbox" id="termo"> Declaro, sob as penas da lei, que os dados são verdadeiros e autorizo o tratamento para este manifesto, nos termos da LGPD.</label>
+        <label><input type="checkbox" id="termo"> Declaro, sob as penas da lei, que os dados são verdadeiros e autorizo o tratamento para este manifesto.</label>
         <p><button class="btn primario" id="btnCadastro">Enviar para conferência</button></p>
         <div id="cadastroMsg"></div>
       </div>
     </section>
-    <section id="painel" class="hidden">
-      <div class="card">
-        <h2>Meu painel</h2>
-        <div id="painelConteudo">Entre para assinar, votar e baixar o comprovante.</div>
-      </div>
-    </section>
+
+    <section id="painel" class="hidden"><div class="card" id="painelConteudo">Entre na aba Entrar.</div></section>
     <section id="admin" class="hidden">
       <div class="card">
-        <h2>Controle admin — Brasil</h2>
+        <h2 style="color:var(--primary);margin-top:0">Admin — Brasil</h2>
         <p>
-          <button class="btn" id="btnPdfBrasil">PDF Brasil</button>
-          <button class="btn" id="btnPdfUf">PDF da UF filtrada</button>
-          <button class="btn" id="btnCsv">CSV completo</button>
+          <button class="btn azul" id="btnPdfBrasil">PDF Brasil</button>
+          <button class="btn azul" id="btnPdfUf">PDF da UF</button>
+          <button class="btn" id="btnCsv">CSV</button>
         </p>
         <div class="grid">
           <div><label>Busca</label><input id="filtroQ"></div>
           <div><label>UF</label><select id="filtroUf"><option value="">Todas</option></select></div>
           <div><label>Status</label><select id="filtroStatus"><option value="">Todos</option><option>pendente</option><option>conferido</option><option>rejeitado</option><option>excluido</option></select></div>
         </div>
-        <p><button class="btn primario" id="btnFiltrar">Atualizar lista</button></p>
+        <p><button class="btn primario" id="btnFiltrar">Atualizar</button></p>
         <div id="adminResumo"></div>
         <div style="overflow:auto"><table id="tabela"></table></div>
-        <h3>Auditoria recente</h3>
-        <div id="auditoria"></div>
+        <h3>Auditoria</h3><div id="auditoria"></div>
       </div>
     </section>
   </main>
+  <footer>Projeto SandxCDD · iniciativa cidadã, não é site oficial. CPF e título são conferidos por dígito; não há consulta à Receita nem ao TSE. Marca própria, sem brasão do governo.</footer>
   <script>
     const $ = (s) => document.querySelector(s);
-    let me = null;
-    let ufs = [];
+    const UFS = [["AC","Acre"],["AL","Alagoas"],["AP","Amapá"],["AM","Amazonas"],["BA","Bahia"],["CE","Ceará"],["DF","Distrito Federal"],["ES","Espírito Santo"],["GO","Goiás"],["MA","Maranhão"],["MT","Mato Grosso"],["MS","Mato Grosso do Sul"],["MG","Minas Gerais"],["PA","Pará"],["PB","Paraíba"],["PR","Paraná"],["PE","Pernambuco"],["PI","Piauí"],["RJ","Rio de Janeiro"],["RN","Rio Grande do Norte"],["RS","Rio Grande do Sul"],["RO","Rondônia"],["RR","Roraima"],["SC","Santa Catarina"],["SP","São Paulo"],["SE","Sergipe"],["TO","Tocantins"]];
+    let me = null, apiOk = false;
     function aba(nome) {
-      document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
-      document.getElementById(nome).classList.remove('hidden');
-      document.querySelectorAll('nav button').forEach(b => b.classList.toggle('ativo', b.dataset.aba === nome));
-      if (nome === 'painel') pintarPainel();
-      if (nome === 'admin') carregarAdmin();
-      if (nome === 'manifesto') carregarPublico();
+      document.querySelectorAll("main > section").forEach(s => s.classList.add("hidden"));
+      document.getElementById(nome).classList.remove("hidden");
+      document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("ativo", b.dataset.aba === nome));
+      if (nome === "painel") pintarPainel();
+      if (nome === "admin") carregarAdmin();
     }
-    document.querySelectorAll('nav button').forEach(b => b.onclick = () => aba(b.dataset.aba));
+    document.querySelectorAll(".nav button").forEach(b => b.onclick = () => aba(b.dataset.aba));
+    function preencherUfs() {
+      const opts = UFS.map(([s,n]) => `<option value="${s}">${s} — ${n}</option>`).join("");
+      $("#uf").insertAdjacentHTML("beforeend", opts);
+      $("#filtroUf").insertAdjacentHTML("beforeend", UFS.map(([s]) => `<option value="${s}">${s}</option>`).join(""));
+    }
     async function api(url, opt = {}) {
-      const r = await fetch(url, { headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', ...opt });
-      const tipo = r.headers.get('content-type') || '';
-      if (tipo.includes('pdf') || tipo.includes('csv')) return r;
-      const data = await r.json().catch(() => ({}));
-      if (!r.ok) throw data;
+      let r;
+      try { r = await fetch(url, { headers:{ "Content-Type":"application/json" }, credentials:"same-origin", ...opt }); }
+      catch { throw { erro:"Sem conexão com a API. mobilis.droppfy.com está só com a página. Publique o server.mjs no mesmo domínio." }; }
+      const tipo = r.headers.get("content-type") || "";
+      if (tipo.includes("pdf") || tipo.includes("csv")) return r;
+      const data = await r.json().catch(() => null);
+      if (!r.ok) throw data || { erro:`A API respondeu ${r.status}. O HTML foi publicado sem o servidor Node.` };
       return data;
     }
-    async function boot() {
-      const meta = await api('/api/meta');
-      ufs = meta.ufs;
-      const sel = $('#uf');
-      sel.innerHTML = ufs.map(u => `<option value="${u.sigla}">${u.sigla} — ${u.nome}</option>`).join('');
-      $('#filtroUf').innerHTML += ufs.map(u => `<option value="${u.sigla}">${u.sigla}</option>`).join('');
-      sel.onchange = buscarMun;
-      $('#municipio').oninput = buscarMun;
-      me = (await api('/api/me')).user;
-      $('#abaAdmin').classList.toggle('hidden', !me || me.role !== 'admin');
-      carregarPublico();
+    function aviso(msg) {
+      const bar = $("#statusBar");
+      bar.textContent = msg;
+      bar.classList.remove("hidden");
     }
-    async function buscarMun() {
-      const uf = $('#uf').value;
-      const q = $('#municipio').value;
-      const lista = await api('/api/municipios?uf=' + uf + '&q=' + encodeURIComponent(q));
-      $('#listaMun').innerHTML = lista.map(m => `<option value="${m.nome}"></option>`).join('');
+    async function boot() {
+      preencherUfs();
+      try {
+        await api("/api/meta");
+        apiOk = true;
+        me = (await api("/api/me")).user;
+        $("#abaAdmin").classList.toggle("hidden", !me || me.role !== "admin");
+        carregarPublico();
+      } catch (e) {
+        aviso(e.erro || "Servidor de cadastro indisponível. A página abriu, mas /api/meta não existe neste domínio.");
+      }
     }
     async function carregarPublico() {
-      const t = await api('/api/publico');
-      $('#totais').innerHTML = [
-        ['Cadastrados', t.cadastrados], ['Conferidos', t.conferidos], ['Assinaturas', t.assinaturas], ['Votos', t.votos]
-      ].map(([k, v]) => `<div class="card"><strong>${v}</strong><br>${k} no Brasil</div>`).join('');
+      const t = await api("/api/publico");
+      $("#totais").innerHTML = [["Cadastrados",t.cadastrados],["Conferidos",t.conferidos],["Assinaturas",t.assinaturas],["Votos",t.votos]]
+        .map(([k,v]) => `<div class="card"><strong style="font-size:1.6rem;color:var(--primary)">${v}</strong><br>${k}</div>`).join("");
     }
-    $('#btnCadastro').onclick = async () => {
-      $('#cadastroMsg').textContent = 'Enviando...';
+    $("#uf").onchange = buscarMun;
+    $("#municipio").oninput = buscarMun;
+    async function buscarMun() {
+      if (!apiOk || !$("#uf").value) return;
+      const lista = await api("/api/municipios?uf=" + $("#uf").value + "&q=" + encodeURIComponent($("#municipio").value));
+      $("#listaMun").innerHTML = lista.map(m => `<option value="${m.nome}"></option>`).join("");
+    }
+    function validarAntes() {
+      const erros = [];
+      if ($("#nome").value.trim().split(" ").length < 2) erros.push("Informe nome e sobrenome.");
+      if ($("#senha").value.length < 8) erros.push("Senha mínima de 8 caracteres.");
+      if ($("#cpf").value.replace(/\D/g,"").length !== 11) erros.push("CPF precisa ter 11 dígitos.");
+      if ($("#whatsapp").value.replace(/\D/g,"").length !== 11) erros.push("WhatsApp precisa ter DDD + 9 dígitos.");
+      if ($("#titulo").value.replace(/\D/g,"").length !== 12) erros.push("Título precisa ter 12 dígitos.");
+      if (!$("#uf").value) erros.push("Selecione a UF. Sem isso o município não confere.");
+      if (!$("#municipio").value.trim()) erros.push("Informe o município oficial.");
+      if (!$("#termo").checked) erros.push("Marque a declaração de veracidade.");
+      return erros;
+    }
+    $("#btnCadastro").onclick = async () => {
+      const locais = validarAntes();
+      if (locais.length) { $("#cadastroMsg").innerHTML = `<p class="erro">${locais.join("<br>")}</p>`; return; }
+      if (!apiOk) { $("#cadastroMsg").innerHTML = `<p class="erro">Cadastro não enviado: a API não está no ar em mobilis.droppfy.com. Subir só o HTML não grava ninguém.</p>`; return; }
+      $("#cadastroMsg").textContent = "Enviando...";
       try {
-        const body = {
-          nome: $('#nome').value, email: $('#email').value, senha: $('#senha').value, cpf: $('#cpf').value,
-          whatsapp: $('#whatsapp').value, nascimento: $('#nascimento').value, titulo: $('#titulo').value,
-          zona: $('#zona').value, secao: $('#secao').value, uf: $('#uf').value, municipio: $('#municipio').value,
-          emissao: $('#emissao').value, termo: $('#termo').checked
-        };
-        const r = await api('/api/cadastro', { method: 'POST', body: JSON.stringify(body) });
-        $('#cadastroMsg').innerHTML = `<p class="ok">${r.mensagem} Protocolo ${r.id}. O admin precisa conferir antes da assinatura contar no PDF.</p>`;
+        const body = ["nome","email","senha","cpf","whatsapp","nascimento","titulo","zona","secao","uf","municipio","emissao"].reduce((o,k) => (o[k] = $("#"+k).value, o), { termo:$("#termo").checked });
+        const r = await api("/api/cadastro", { method:"POST", body:JSON.stringify(body) });
+        $("#cadastroMsg").innerHTML = `<p class="ok">${r.mensagem} Protocolo ${r.id}.</p>`;
       } catch (e) {
-        $('#cadastroMsg').innerHTML = `<p class="erro">${(e.erros || [e.erro || 'Falha']).join('<br>')}</p>`;
+        $("#cadastroMsg").innerHTML = `<p class="erro">${(e.erros || [e.erro || "Falha ao gravar"]).join("<br>")}</p>`;
       }
     };
-    $('#btnLogin').onclick = async () => {
+    $("#btnLogin").onclick = async () => {
       try {
-        const r = await api('/api/login', { method: 'POST', body: JSON.stringify({ email: $('#loginEmail').value, senha: $('#loginSenha').value }) });
-        me = r.user;
-        $('#abaAdmin').classList.toggle('hidden', me.role !== 'admin');
-        $('#loginMsg').innerHTML = `<p class="ok">Entrou como ${me.role}. ${me.mustChange ? 'Troque a senha padrão no servidor.' : ''}</p>`;
-        aba(me.role === 'admin' ? 'admin' : 'painel');
-      } catch (e) {
-        $('#loginMsg').innerHTML = `<p class="erro">${e.erro || 'Falha no login'}</p>`;
-      }
+        const r = await api("/api/login", { method:"POST", body:JSON.stringify({ email:$("#loginEmail").value, senha:$("#loginSenha").value }) });
+        me = r.user; apiOk = true;
+        $("#abaAdmin").classList.toggle("hidden", me.role !== "admin");
+        $("#loginMsg").innerHTML = `<p class="ok">Entrou como ${me.role}.</p>`;
+        aba(me.role === "admin" ? "admin" : "painel");
+      } catch (e) { $("#loginMsg").innerHTML = `<p class="erro">${e.erro || "Falha no login"}</p>`; }
     };
     function pintarPainel() {
-      const el = $('#painelConteudo');
-      if (!me) { el.innerHTML = 'Entre na aba Entrar.'; return; }
-      if (me.role === 'admin') { el.innerHTML = 'Conta admin. Use a aba Admin.'; return; }
-      el.innerHTML = `
-        <p><strong>${me.nome}</strong> — ${me.municipio}/${me.uf} — status <strong>${me.status}</strong></p>
-        <p>CPF ${me.cpf} · título ${me.titulo} · IBGE ${me.municipioIbge || '—'} · conferência TSE: não realizada</p>
-        <p>${me.motivo || ''}</p>
-        <p><button class="btn primario" id="btnAssinar">Assinar manifesto</button>
-           <a class="btn" href="/api/comprovante.pdf">Baixar comprovante</a></p>
-        <form id="formVoto">
-          <h3>Votação de prioridades</h3>
-          <label>Prioridade de recurso</label>
-          <select name="prioridade"><option>Ônibus e BRT</option><option>Integração tarifária</option><option>Calçadas e acessibilidade</option><option>Ciclovias e segurança viária</option></select>
-          <label>Pagamento por km com auditoria</label>
-          <select name="pagamento_km"><option>Sim</option><option>Não</option><option>Abstenção</option></select>
-          <label>IA de visão com base legal</label>
-          <select name="ia_visao"><option>Sim</option><option>Não</option><option>Abstenção</option></select>
-          <p><button class="btn primario" type="submit">Registrar voto</button></p>
-        </form>
-        <p><button class="btn" id="btnSair">Sair</button></p><div id="painelMsg"></div>`;
-      $('#btnSair').onclick = sair;
-      $('#btnAssinar').onclick = async () => {
-        try { await api('/api/assinar', { method: 'POST', body: JSON.stringify({ termo: true }) }); $('#painelMsg').innerHTML = '<p class="ok">Assinatura registrada.</p>'; }
-        catch (e) { $('#painelMsg').innerHTML = `<p class="erro">${e.erro}</p>`; }
+      const el = $("#painelConteudo");
+      if (!me) { el.innerHTML = "<h2>Meu painel</h2><p>Entre na aba Entrar.</p>"; return; }
+      if (me.role === "admin") { el.innerHTML = "<h2>Meu painel</h2><p>Conta admin. Use a aba Admin.</p>"; return; }
+      el.innerHTML = `<h2 style="color:var(--primary)">Meu painel</h2><p><strong>${me.nome}</strong> — ${me.municipio}/${me.uf} — ${me.status}</p><p>${me.motivo || ""}</p><p><button class="btn primario" id="btnAssinar">Assinar manifesto</button> <a class="btn azul" href="/api/comprovante.pdf">Comprovante</a></p><form id="formVoto"><h3>Votação</h3><label>Prioridade</label><select name="prioridade"><option>Ônibus e BRT</option><option>Integração tarifária</option><option>Calçadas e acessibilidade</option><option>Ciclovias e segurança viária</option></select><label>Pagamento por km</label><select name="pagamento_km"><option>Sim</option><option>Não</option><option>Abstenção</option></select><label>IA com base legal</label><select name="ia_visao"><option>Sim</option><option>Não</option><option>Abstenção</option></select><p><button class="btn primario">Registrar voto</button></p></form><p><button class="btn" id="btnSair">Sair</button></p><div id="painelMsg"></div>`;
+      $("#btnSair").onclick = sair;
+      $("#btnAssinar").onclick = async () => {
+        try { await api("/api/assinar", { method:"POST", body:JSON.stringify({ termo:true }) }); $("#painelMsg").innerHTML = "<p class='ok'>Assinatura registrada.</p>"; }
+        catch (e) { $("#painelMsg").innerHTML = `<p class="erro">${e.erro}</p>`; }
       };
-      $('#formVoto').onsubmit = async (ev) => {
+      $("#formVoto").onsubmit = async (ev) => {
         ev.preventDefault();
-        const f = new FormData(ev.target);
-        try {
-          await api('/api/votar', { method: 'POST', body: JSON.stringify({ respostas: Object.fromEntries(f.entries()) }) });
-          $('#painelMsg').innerHTML = '<p class="ok">Voto registrado. Um voto por cadastro conferido.</p>';
-        } catch (e) { $('#painelMsg').innerHTML = `<p class="erro">${e.erro}</p>`; }
+        try { await api("/api/votar", { method:"POST", body:JSON.stringify({ respostas:Object.fromEntries(new FormData(ev.target).entries()) }) }); $("#painelMsg").innerHTML = "<p class='ok'>Voto registrado.</p>"; }
+        catch (e) { $("#painelMsg").innerHTML = `<p class="erro">${e.erro}</p>`; }
       };
     }
-    async function sair() {
-      await api('/api/logout', { method: 'POST', body: '{}' });
-      me = null;
-      $('#abaAdmin').classList.add('hidden');
-      aba('entrar');
-    }
+    async function sair() { await api("/api/logout", { method:"POST", body:"{}" }); me = null; $("#abaAdmin").classList.add("hidden"); aba("entrar"); }
     async function carregarAdmin() {
-      if (!me || me.role !== 'admin') { $('#adminResumo').innerHTML = '<p class="erro">Somente admin.</p>'; return; }
-      const q = encodeURIComponent($('#filtroQ').value || '');
-      const uf = $('#filtroUf').value;
-      const status = $('#filtroStatus').value;
-      const [painel, usuarios] = await Promise.all([
-        api('/api/admin/painel'),
-        api(`/api/admin/usuarios?q=${q}&uf=${uf}&status=${status}`)
-      ]);
-      $('#adminResumo').innerHTML = `<p>Brasil: ${painel.totais.cadastrados} cadastros, ${painel.totais.conferidos} conferidos, ${painel.totais.assinaturas} assinaturas, ${painel.totais.votos} votos.</p>`;
-      $('#tabela').innerHTML = `<tr><th>Nome</th><th>Docs</th><th>Local</th><th>Status</th><th>Ações</th></tr>` + usuarios.map(u => `
-        <tr>
-          <td>${u.nome}<br><small>${u.email}</small></td>
-          <td>CPF ${u.cpf}<br>Título ${u.titulo}<br>Z ${u.zona} S ${u.secao}</td>
-          <td>${u.municipio}/${u.uf}<br><small>IBGE ${u.municipioIbge}</small></td>
-          <td>${u.status}<br><small>${u.motivo || ''}</small></td>
-          <td class="acoes">
-            <button data-id="${u.id}" data-acao="conferir">Conferir</button>
-            <button data-id="${u.id}" data-acao="rejeitar">Rejeitar</button>
-            <button data-id="${u.id}" data-acao="excluir">Excluir</button>
-            <button data-id="${u.id}" data-acao="restaurar">Restaurar</button>
-            <button data-id="${u.id}" data-acao="deletar">Deletar</button>
-          </td>
-        </tr>`).join('');
-      $('#tabela').querySelectorAll('button').forEach(btn => btn.onclick = acaoAdmin);
-      $('#auditoria').innerHTML = painel.auditoria.map(a => `<div><small>${a.em} · ${a.acao} · ${a.alvo} · ${a.detalhe || ''}</small></div>`).join('');
+      if (!me || me.role !== "admin") { $("#adminResumo").innerHTML = "<p class='erro'>Somente admin.</p>"; return; }
+      const q = encodeURIComponent($("#filtroQ").value || "");
+      const [painel, usuarios] = await Promise.all([api("/api/admin/painel"), api(`/api/admin/usuarios?q=${q}&uf=${$("#filtroUf").value}&status=${$("#filtroStatus").value}`)]);
+      $("#adminResumo").innerHTML = `<p>Brasil: ${painel.totais.cadastrados} cadastros, ${painel.totais.conferidos} conferidos, ${painel.totais.assinaturas} assinaturas, ${painel.totais.votos} votos.</p>`;
+      $("#tabela").innerHTML = "<tr><th>Nome</th><th>Docs</th><th>Local</th><th>Status</th><th>Ações</th></tr>" + usuarios.map(u => `<tr><td>${u.nome}<br><small>${u.email}</small></td><td>CPF ${u.cpf}<br>Título ${u.titulo}</td><td>${u.municipio}/${u.uf}</td><td>${u.status}<br><small>${u.motivo||""}</small></td><td class="acoes"><button data-id="${u.id}" data-acao="conferir">Conferir</button><button data-id="${u.id}" data-acao="rejeitar">Rejeitar</button><button data-id="${u.id}" data-acao="excluir">Excluir</button><button data-id="${u.id}" data-acao="restaurar">Restaurar</button><button data-id="${u.id}" data-acao="deletar">Deletar</button></td></tr>`).join("");
+      $("#tabela").querySelectorAll("button").forEach(b => b.onclick = acaoAdmin);
+      $("#auditoria").innerHTML = painel.auditoria.map(a => `<div><small>${a.em} · ${a.acao} · ${a.detalhe||""}</small></div>`).join("");
     }
     async function acaoAdmin(ev) {
       const { id, acao } = ev.target.dataset;
-      if (acao === 'deletar') {
-        if (!confirm('Deletar permanente? A assinatura deixa de contar.')) return;
-        await api('/api/admin/usuarios/' + id, { method: 'DELETE' });
-      } else {
-        const motivo = acao === 'rejeitar' || acao === 'excluir' ? prompt('Motivo') || '' : '';
-        await api('/api/admin/usuarios/' + id + '/' + acao, { method: 'POST', body: JSON.stringify({ motivo }) });
-      }
+      if (acao === "deletar") { if (!confirm("Deletar permanente?")) return; await api("/api/admin/usuarios/"+id, { method:"DELETE" }); }
+      else await api("/api/admin/usuarios/"+id+"/"+acao, { method:"POST", body:JSON.stringify({ motivo: acao==="rejeitar"||acao==="excluir" ? (prompt("Motivo")||"") : "" }) });
       carregarAdmin();
     }
-    $('#btnFiltrar').onclick = carregarAdmin;
-    function baixar(url) { window.location = url; }
-    $('#btnPdfBrasil').onclick = () => baixar('/api/admin/relatorio.pdf');
-    $('#btnPdfUf').onclick = () => baixar('/api/admin/relatorio.pdf?uf=' + $('#filtroUf').value);
-    $('#btnCsv').onclick = () => baixar('/api/admin/export.csv');
-    boot().catch(err => alert(err.erro || err.message || 'Servidor indisponível'));
+    $("#btnFiltrar").onclick = carregarAdmin;
+    $("#btnPdfBrasil").onclick = () => location = "/api/admin/relatorio.pdf";
+    $("#btnPdfUf").onclick = () => location = "/api/admin/relatorio.pdf?uf=" + $("#filtroUf").value;
+    $("#btnCsv").onclick = () => location = "/api/admin/export.csv";
+    boot();
   </script>
 </body>
 </html>
