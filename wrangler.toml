@@ -1,8 +1,8 @@
 name = "kpimobilidade"
-pages_build_output_dir = "public"
+main = "worker.js"
 compatibility_date = "2026-03-01"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "kpimobilidade"
-database_id = "COLE_O_ID_DO_D1_AQUI"
+database_id = "933aea06-31ea-4921-b2ea-c3f1b88340ec"
