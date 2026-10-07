@@ -44,5 +44,3 @@ CREATE TABLE IF NOT EXISTS audit (
   em TEXT NOT NULL,
   ator TEXT, acao TEXT, alvo TEXT, detalhe TEXT
 );
-CREATE INDEX IF NOT EXISTS idx_users_status ON users(status);
-CREATE INDEX IF NOT EXISTS idx_users_uf ON users(uf);
