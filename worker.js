@@ -79,7 +79,10 @@ async function carregarMunicipios() {
   const resp = await fetch("https://servicodados.ibge.gov.br/api/v1/localidades/municipios?orderBy=nome");
   if (!resp.ok) throw new Error("IBGE indisponível");
   const lista = await resp.json();
-  municipios = lista.map(m => ({ id:m.id, nome:m.nome, uf:m.microrregiao.mesorregiao.UF.sigla }));
+  municipios = lista.flatMap(m => {
+    const uf = m.microrregiao && m.microrregiao.mesorregiao && m.microrregiao.mesorregiao.UF && m.microrregiao.mesorregiao.UF.sigla;
+    return uf ? [{ id:m.id, nome:m.nome, uf }] : [];
+  });
 }
 function publico(u) { if (!u) return null; const { senha_hash, ...resto } = u; return resto; }
 async function auditar(db, ator, acao, alvo, detalhe) {
@@ -454,11 +457,11 @@ const PAGINA = `<!DOCTYPE html>
     async function api(url, opt = {}) {
       let r;
       try { r = await fetch(url, { headers:{ "Content-Type":"application/json" }, credentials:"same-origin", ...opt }); }
-      catch { throw { erro:"Sem conexão com a API. mobilis.droppfy.com está só com a página. Publique o server.mjs no mesmo domínio." }; }
+      catch { throw { erro:"Sem conexão com a API neste endereço." }; }
       const tipo = r.headers.get("content-type") || "";
       if (tipo.includes("pdf") || tipo.includes("csv")) return r;
       const data = await r.json().catch(() => null);
-      if (!r.ok) throw data || { erro:\`A API respondeu \${r.status}. O HTML foi publicado sem o servidor Node.\` };
+      if (!r.ok) throw data || { erro:\`A API respondeu \${r.status}.\` };
       return data;
     }
     function aviso(msg) {
@@ -505,7 +508,7 @@ const PAGINA = `<!DOCTYPE html>
     $("#btnCadastro").onclick = async () => {
       const locais = validarAntes();
       if (locais.length) { $("#cadastroMsg").innerHTML = \`<p class="erro">\${locais.join("<br>")}</p>\`; return; }
-      if (!apiOk) { $("#cadastroMsg").innerHTML = \`<p class="erro">Cadastro não enviado: a API não está no ar em mobilis.droppfy.com. Subir só o HTML não grava ninguém.</p>\`; return; }
+      if (!apiOk) { $("#cadastroMsg").innerHTML = \`<p class="erro">Cadastro não enviado: a API deste endereço não está no ar.</p>\`; return; }
       $("#cadastroMsg").textContent = "Enviando...";
       try {
         const body = ["nome","email","senha","cpf","whatsapp","nascimento","titulo","zona","secao","uf","municipio","emissao"].reduce((o,k) => (o[k] = $("#"+k).value, o), { termo:$("#termo").checked });
@@ -560,6 +563,11 @@ const PAGINA = `<!DOCTYPE html>
     $("#btnPdfBrasil").onclick = () => location = "/api/admin/relatorio.pdf";
     $("#btnPdfUf").onclick = () => location = "/api/admin/relatorio.pdf?uf=" + $("#filtroUf").value;
     $("#btnCsv").onclick = () => location = "/api/admin/export.csv";
+    boot();
+  </script>
+</body>
+</html>
+n/export.csv";
     boot();
   </script>
 </body>
