@@ -309,7 +309,7 @@ const PAGINA = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SandxCDD | Mobilidade Inteligente & IA</title>
+  <title>KPI´s | Mobilidade Inteligente & IA</title>
   <link rel="icon" href="/marca.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -363,8 +363,8 @@ const PAGINA = `<!DOCTYPE html>
 <header>
   <button class="entrar" id="abrirEntrar">Entrar</button>
   <div class="container">
-    <h1>SANDXCDD</h1>
-    <p class="tagline">Tecnologia com Mobilidade Inteligente & IA.</p>
+    <h1>KPI´s | Mobilidade & IA</h1>
+    <p class="tagline">Tecnologia de Trasnporte & Mobilidade Inteligente.</p>
     <p>Pagamento por percurso, segurança via IA e transparência.</p>
     <p><button class="btn" id="abrirAssinar">ASSINAR O MANIFESTO POPULAR</button></p>
   </div>
@@ -385,7 +385,7 @@ const PAGINA = `<!DOCTYPE html>
   </section>
 </div>
 <footer>
-  <p>Projeto SandxCDD. Iniciativa cidadã, não é site oficial.</p>
+  <p>Projeto KPI´s | Mobilidade Inteligente & IA -  x-Partner. Iniciativa cidadã.</p>
 </footer>
 </div>
 
@@ -416,7 +416,7 @@ const PAGINA = `<!DOCTYPE html>
 
 <div id="dash">
   <div class="topbar">
-    <strong id="dashTitulo">SandxCDD</strong>
+    <strong id="dashTitulo">KPI´s | Mobilidade Inteligente & IA</strong>
     <div class="topo-acoes" id="acoesDash" style="display:none">
       <a id="linkPdf" href="/api/admin/relatorio.pdf">PDF Brasil</a>
       <a id="pdfUf" href="/api/admin/relatorio.pdf">PDF da UF</a>
@@ -476,7 +476,7 @@ function mostrarDash() {
     $("#loginBox").style.display = "none";
     $("#cidadaoBox").style.display = "none";
     $("#board").classList.remove("hidden");
-    $("#dashTitulo").textContent = "SandxCDD · Controle nacional";
+    $("#dashTitulo").textContent = "KPI´s | Mobilidade Inteligente & IA · Controle Nacional";
     $("#acoesDash").style.display = "flex";
     $("#btnVoltar").style.display = "none";
     pintarPainel();
