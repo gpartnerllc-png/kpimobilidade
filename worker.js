@@ -364,7 +364,7 @@ const PAGINA = `<!DOCTYPE html>
   <button class="entrar" id="abrirEntrar">Entrar</button>
   <div class="container">
     <h1>SANDXCDD</h1>
-    <p class="tagline">Tecnologia para o transporte da nossa cidade.</p>
+    <p class="tagline">Tecnologia com Mobilidade Inteligente & IA.</p>
     <p>Pagamento por percurso, segurança via IA e transparência.</p>
     <p><button class="btn" id="abrirAssinar">ASSINAR O MANIFESTO POPULAR</button></p>
   </div>
