@@ -309,7 +309,7 @@ const PAGINA = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KPI´s | Mobilidade Inteligente & IA</title>
+  <title>Mobilidade Inteligente & IA</title>
   <link rel="icon" href="/marca.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -363,7 +363,7 @@ const PAGINA = `<!DOCTYPE html>
 <header>
   <button class="entrar" id="abrirEntrar">Entrar</button>
   <div class="container">
-    <h1>KPI´s | Mobilidade & IA</h1>
+    <h1>Mobilidade & IA</h1>
     <p class="tagline">Tecnologia de Trasnporte & Mobilidade Inteligente.</p>
     <p>Pagamento por percurso, segurança via IA e transparência.</p>
     <p><button class="btn" id="abrirAssinar">ASSINAR O MANIFESTO POPULAR</button></p>
@@ -385,7 +385,7 @@ const PAGINA = `<!DOCTYPE html>
   </section>
 </div>
 <footer>
-  <p>Projeto KPI´s | Mobilidade Inteligente & IA -  x-Partner. Iniciativa cidadã.</p>
+  <p>Projeto KPI´s | Mobilidade Inteligente & IA . Iniciativa cidadã.</p>
 </footer>
 </div>
 
