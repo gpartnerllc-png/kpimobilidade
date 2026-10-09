@@ -476,7 +476,7 @@ function mostrarDash() {
     $("#loginBox").style.display = "none";
     $("#cidadaoBox").style.display = "none";
     $("#board").classList.remove("hidden");
-    $("#dashTitulo").textContent = "KPI´s | Mobilidade Inteligente & IA · Controle Nacional";
+    $("#dashTitulo").textContent = "IA · Controle Nacional";
     $("#acoesDash").style.display = "flex";
     $("#btnVoltar").style.display = "none";
     pintarPainel();
